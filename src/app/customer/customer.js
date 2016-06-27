@@ -12,6 +12,7 @@
         };
 
         function makePayment() {
+            if (customer.amount == null) { return }
             repository.addPayment(customer.data.id, customer.amount);
             customer.amount = null;
         }
