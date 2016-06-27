@@ -1,0 +1,17 @@
+<div>
+    <h3 layout>
+        <span flex>Payment History for {{model.data.fullName}}</span>
+        <span>Balance: {{model.data.endBalance | currency}}</span>
+    </h3>
+    <div layout ng-repeat="payment in model.data.paymentHistory | orderBy:'-date'">
+        <p flex> {{payment.date | date:"MM/dd/yyyy 'at' h:mma"}} - {{ payment.amount | currency }}</p>
+        <p> {{ payment.balanceTotal | currency}} </p>
+    </div>
+    <div>
+        <md-input-container>
+            <label>Payment Amount</label>
+            <input type="text" ng-model="model.amount">
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="model.makePayment()">Make Payment</md-button>
+    </div>
+</div>

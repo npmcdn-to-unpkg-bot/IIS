@@ -1,0 +1,13 @@
+<md-list ng-cloak>
+    <md-subheader>
+        <md-input-container>
+            <label>Search</label>
+            <md-icon class="material-icons">search</md-icon>
+            <input ng-model="letters">
+        </md-input-container>
+    </md-subheader>
+    <md-list-item ng-repeat="customer in model.data | containsLetters:letters" ng-click="model.navigate(customer.id)">
+        <p><span>{{customer.firstName}}</span> <span>{{customer.lastName}}</span></p>
+        <md-button class="md-secondary">{{customer.endBalance | currency}}</md-button>
+    </md-list-item>
+</md-list>
