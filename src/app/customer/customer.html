@@ -1,8 +1,12 @@
-<div>
+<div style="padding:0 50px">
     <h3 layout>
         <span flex>Payment History for {{model.data.fullName}}</span>
         <span>Balance: {{model.data.endBalance | currency}}</span>
     </h3>
+    <h4 layout="column">
+        <span>{{model.data.address}}</span>
+        <span>{{model.data.phone}}</span>
+    </h4>
     <div layout ng-repeat="payment in model.data.paymentHistory | orderBy:'-date'">
         <p flex> {{payment.date | date:"MM/dd/yyyy 'at' h:mma"}} - {{ payment.amount | currency }}</p>
         <p> {{ payment.balanceTotal | currency}} </p>
